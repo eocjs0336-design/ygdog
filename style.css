@@ -559,6 +559,8 @@ body {
 
 /* Custom Marker Styling */
 .custom-pin {
+  width: 36px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
