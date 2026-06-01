@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>양구, 발걸음 가볍개 - 양구군 반려동물 관광 안내 가이드</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="반려동물과 함께 떠나는 양구군 여행! 펜션, 캠핑장, 카페, 식당, 관광지부터 동물병원까지 반려견과 함께할 수 있는 양구의 모든 장소를 지도로 편리하게 확인해 보세요.">
+  <meta name="keywords" content="양구군, 반려동물, 애견동반, 양구여행, 댕댕맵, 양구, 발걸음 가볍개, 반려견동반, 한반도섬, 양구수목원">
+  <meta property="og:title" content="양구, 발걸음 가볍개 - 양구군 반려동물 관광 안내 가이드">
+  <meta property="og:description" content="반려견과 함께하는 양구군 관광 지도 가이드. 숙소, 관광지, 식당/카페, 의료 편의시설 정보 총망라!">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicon (Emoji as Icon for compatibility) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- App Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area" id="btn-logo">
+        <span class="logo-emoji">🐾</span>
+        <h1 class="logo-text">양구, <span>발걸음 가볍개</span></h1>
+      </div>
+      <nav class="header-nav">
+        <span class="nav-subtitle">양구군 반려동물 동반 지도</span>
+        <button class="menu-toggle-btn" id="btn-menu-open" aria-label="메뉴 열기">
+          <i data-lucide="menu"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="app-container">
+    
+    <!-- Sidebar: 30% Width -->
+    <aside class="sidebar" id="sidebar">
+      
+      <!-- Search & Filters Container -->
+      <div class="search-filter-section">
+        <!-- Text Search -->
+        <div class="search-bar">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="search-input" placeholder="장소명, 주소, 태그 검색 (예: 한반도섬, 캠핑)..." autocomplete="off">
+          <button id="search-clear-btn" class="search-clear-btn hidden" aria-label="검색어 지우기">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <!-- Category Buttons -->
+        <div class="category-filters">
+          <button class="category-btn active" data-category="전체">
+            <i data-lucide="grid"></i> 전체
+          </button>
+          <button class="category-btn" data-category="숙소">
+            <i data-lucide="home"></i> 숙소
+          </button>
+          <button class="category-btn" data-category="식당/카페">
+            <i data-lucide="coffee"></i> 식당/카페
+          </button>
+          <button class="category-btn" data-category="관광지">
+            <i data-lucide="palmtree"></i> 관광지
+          </button>
+          <button class="category-btn" data-category="의료/편의">
+            <i data-lucide="heart-pulse"></i> 의료/편의
+          </button>
+        </div>
+
+        <!-- Pet Conditions Filter -->
+        <div class="pet-conditions-filter">
+          <span class="filter-title">반려견 크기 및 구역 필터:</span>
+          <div class="condition-chips">
+            <button class="condition-chip" data-condition="소형견">소형견 가능</button>
+            <button class="condition-chip" data-condition="중형견">중형견 가능</button>
+            <button class="condition-chip" data-condition="대형견">대형견 가능</button>
+            <button class="condition-chip" data-condition="오프리쉬">오프리쉬 구역</button>
+          </div>
+        </div>
+
+        <!-- Emergency Banner Button -->
+        <button class="emergency-banner-btn" id="btn-emergency-open">
+          <i data-lucide="phone-call"></i> 24시 긴급 동물병원 & 응급 가이드
+        </button>
+      </div>
+
+      <!-- Places List -->
+      <div class="list-section">
+        <div class="list-header">
+          <span class="count-text">총 <strong id="place-count">0</strong>개의 추천 장소</span>
+          <button class="add-place-btn" id="btn-add-place">➕ 새 장소 등록</button>
+          <button class="reset-filter-btn" id="btn-reset-filters">필터 초기화</button>
+        </div>
+        
+        <!-- Weather & Asphalt Risk Widget -->
+        <div class="weather-widget" id="weather-widget">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <div class="places-list" id="places-list">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- Map Area: 70% Width -->
+    <main class="map-area">
+      <div id="map"></div>
+      
+      <!-- Location Picker Floating Overlay -->
+      <div class="map-picker-overlay hidden" id="map-picker-overlay">
+        <div class="picker-info">
+          <span class="picker-emoji">📍</span>
+          <div class="picker-text">
+            <strong>새 장소 위치 지정 중</strong>
+            <p>지도의 원하는 위치를 클릭하여 핀을 꽂아주세요.</p>
+          </div>
+        </div>
+        <div class="picker-actions">
+          <button id="btn-picker-save" class="picker-btn save-btn">선택 완료</button>
+          <button id="btn-picker-cancel" class="picker-btn cancel-btn">취소</button>
+        </div>
+      </div>
+
+      <!-- Mobile Floating View Toggle Button -->
+      <button class="mobile-toggle-view-btn" id="btn-mobile-toggle">
+        <i data-lucide="list"></i> <span>목록 보기</span>
+      </button>
+    </main>
+
+  </div>
+
+  <!-- Detail Information Panel (Slide-in) -->
+  <div class="detail-panel" id="detail-panel">
+    <button class="detail-close-btn" id="btn-detail-close" aria-label="상세 패널 닫기">
+      <i data-lucide="x"></i>
+    </button>
+    
+    <div class="detail-content" id="detail-content">
+      <!-- Dynamically populated via JS -->
+    </div>
+  </div>
+  
+  <!-- Back-drop for Detail Panel on Mobile -->
+  <div class="panel-backdrop" id="panel-backdrop"></div>
+
+  <!-- Menu & Guide Overlay (Hamburger Menu Modal) -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-container">
+      <header class="menu-header">
+        <div class="logo-area">
+          <span class="logo-emoji">🐾</span>
+          <h2 class="logo-text">양구, <span>발걸음 가볍개 가이드</span></h2>
+        </div>
+        <button class="menu-close-btn" id="btn-menu-close" aria-label="메뉴 닫기">
+          <i data-lucide="x"></i>
+        </button>
+      </header>
+
+      <div class="menu-body">
+        
+        <!-- Guide Tab Buttons -->
+        <div class="guide-tabs">
+          <button class="tab-btn active" data-tab="course">🗺️ 추천 여행 코스</button>
+          <button class="tab-btn" data-tab="petiquette">🛡️ 공공장소 펫티켓</button>
+          <button class="tab-btn" data-tab="map-settings">⚙️ 지도 설정</button>
+        </div>
+
+        <!-- Tab Content: Travel Courses -->
+        <div class="tab-pane active" id="tab-course">
+          <div class="course-list">
+            
+            <div class="course-card">
+              <div class="course-badge day1">당일치기 코스</div>
+              <h3 class="course-title">자연 교감 & 힐링 워크 코스</h3>
+              <p class="course-desc">바쁜 일상을 벗어나 강아지와 한적하게 자연을 즐기는 알짜배기 산책 코스</p>
+              <ul class="course-steps">
+                <li>
+                  <span class="step-num">1</span>
+                  <div class="step-info">
+                    <strong>파로호 꽃섬 산책 (오전 10:00)</strong>
+                    <p>아침 햇살과 함께 계절꽃이 만발한 정원에서 가볍게 워밍업 산책을 즐겨보세요.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-num">2</span>
+                  <div class="step-info">
+                    <strong>점심 식사 (오후 12:30)</strong>
+                    <p>양구읍 내에 위치한 반려견 동반 가능한 식당(예: 양구재래식손두부 야외 테이블)에서 맛있는 식사를 합니다.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-num">3</span>
+                  <div class="step-info">
+                    <strong>한반도섬 투어 (오후 02:00)</strong>
+                    <p>나무 데크를 걸으며 시원한 호수 바람을 쐬고 넓은 잔디밭에서 인생샷을 남깁니다.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-num">4</span>
+                  <div class="step-info">
+                    <strong>카페 휴식 & 귀가 (오후 04:30)</strong>
+                    <p>정원이 예쁜 반려견 동반 카페(예: 카페 소공원)에서 차 한잔 마시며 여유를 느끼고 하루를 마무리합니다.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="course-card">
+              <div class="course-badge day2">1박 2일 코스</div>
+              <h3 class="course-title">양구 청정 에코 캠핑 코스</h3>
+              <p class="course-desc">공기 맑은 양구에서 반려견과 하룻밤 머물며 별을 관측하고 피톤치드를 만끽하는 풀코스</p>
+              <div class="course-days">
+                <div class="day-section">
+                  <h4>1일차: 힐링 산림욕과 숲속 캠핑</h4>
+                  <ul class="course-steps">
+                    <li>
+                      <span class="step-num">1</span>
+                      <div class="step-info">
+                        <strong>양구수목원 탐방 (오후 01:00)</strong>
+                        <p>울창한 소나무 숲길과 분재원을 산책하며 가볍게 트레킹을 즐깁니다.</p>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="step-num">2</span>
+                      <div class="step-info">
+                        <strong>양구 인문학캠핑장 또는 독채 숙소 체크인 (오후 04:00)</strong>
+                        <p>반려견 전용 텐트 사이트를 구축하고 숲속 오디가에서 피톤치드를 호흡합니다.</p>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="step-num">3</span>
+                      <div class="step-info">
+                        <strong>바비큐 파티 & 국토정중앙천문대 별자리 관측 (저녁 07:30)</strong>
+                        <p>맛있는 고기 파티 후 맑은 양구의 밤하늘 쏟아지는 별빛을 함께 바라봅니다.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="day-section">
+                  <h4>2일차: 활력 충전 계곡 트레킹</h4>
+                  <ul class="course-steps">
+                    <li>
+                      <span class="step-num">4</span>
+                      <div class="step-info">
+                        <strong>광치계곡 둘레길 걷기 (오전 10:30)</strong>
+                        <p>맑고 시원한 계곡물 소리를 들으며 숲 터널 속 둘레길을 가볍게 트레킹합니다.</p>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="step-num">5</span>
+                      <div class="step-info">
+                        <strong>이색 댕댕카페 카페 배꼽 방문 (오후 01:30)</strong>
+                        <p>시래기 라떼나 현지 수제 음료를 즐기며 반려견 전용 운동장에서 자유롭게 뛰놀게 해줍니다.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab Content: Petiquette -->
+        <div class="tab-pane" id="tab-petiquette">
+          <div class="petiquette-content">
+            <div class="petiquette-hero">
+              <i data-lucide="shield-check" class="hero-icon"></i>
+              <h3>모두가 행복한 양구 여행을 위한 약속</h3>
+              <p>동반 불가 장소 확산을 예방하고, 주민 및 다른 관광객을 배려하는 펫티켓 가이드라인입니다.</p>
+            </div>
+            
+            <div class="petiquette-grid">
+              <div class="petiquette-item">
+                <div class="pet-icon"><i data-lucide="file-text"></i></div>
+                <div class="pet-text">
+                  <h4>외출 시 목줄(리드줄) 착용 필수</h4>
+                  <p>공공장소에서는 2m 이내의 목줄을 착용해 주세요. 오프리쉬 구역으로 지정된 전용 쉼터나 운동장에서만 목줄을 풀 수 있습니다.</p>
+                </div>
+              </div>
+              
+              <div class="petiquette-item">
+                <div class="pet-icon"><i data-lucide="trash-2"></i></div>
+                <div class="pet-text">
+                  <h4>배변 봉투 휴대 및 즉시 수거</h4>
+                  <p>반려견의 배설물은 배변 봉투에 넣어 반드시 직접 수거하고 쓰레기통에 올바르게 분리배출해 주세요. 흔적 남기지 않기는 기본입니다.</p>
+                </div>
+              </div>
+
+              <div class="petiquette-item">
+                <div class="pet-icon"><i data-lucide="users"></i></div>
+                <div class="pet-text">
+                  <h4>대중교통 및 식당 이용 예절</h4>
+                  <p>이동 가방, 켄넬 또는 개모차를 사용하고, 식당이나 카페에서는 전용 매트나 방석을 깔아주어 식기나 가구를 오염시키지 않도록 배려해 주세요.</p>
+                </div>
+              </div>
+
+              <div class="petiquette-item">
+                <div class="pet-icon"><i data-lucide="alert-triangle"></i></div>
+                <div class="pet-text">
+                  <h4>인식표 착용 및 동물등록 의무</h4>
+                  <p>낯선 여행지에서 반려견을 잃어버리는 불상사를 방지하기 위해 소유자의 이름, 연락처가 기재된 인식표를 목줄에 꼭 달아주세요.</p>
+                </div>
+              </div>
+
+              <div class="petiquette-item">
+                <div class="pet-icon"><i data-lucide="smile"></i></div>
+                <div class="pet-text">
+                  <h4>비반려인에 대한 배려</h4>
+                  <p>강아지를 무서워하는 행인이 다가올 때는 목줄을 짧게 잡고 강아지를 진정시켜 주세요. 엘리베이터 등 밀폐 공간에서는 반려견을 품에 안아야 합니다.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content: Map Settings (for Kakao Key transition) -->
+        <div class="tab-pane" id="tab-map-settings">
+          <div class="settings-content">
+            <h3>🗺️ 지도 API 설정</h3>
+            <p class="settings-desc">기본적으로 로컬 환경에서 즉시 작동하는 OpenStreetMap(Leaflet)이 작동하고 있습니다. 카카오맵 API 키를 보유하고 계시다면 아래에 입력하여 상용 지도 서비스로 전환해 볼 수 있습니다.</p>
+            
+            <div class="api-key-form">
+              <label for="kakao-api-key">카카오맵 JavaScript API Key</label>
+              <div class="input-group">
+                <input type="text" id="kakao-api-key" placeholder="발급받은 JavaScript 키를 입력하세요..." autocomplete="off">
+                <button class="apply-btn" id="btn-apply-kakao">적용하기</button>
+              </div>
+              <p class="form-help">※ 주의: 카카오 개발자 콘솔에서 해당 로컬 서버의 도메인(예: <code>http://localhost:5500</code> 또는 <code>http://127.0.0.1:5500</code>)이 플랫폼 허용 도메인으로 등록되어 있어야 정상 표시됩니다.</p>
+            </div>
+            
+            <div class="current-map-status">
+              <span class="status-label">현재 구동 중인 지도 엔진:</span>
+              <span class="status-value badge-active" id="map-engine-status">OpenStreetMap (Leaflet)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Emergency Modal -->
+  <div class="emergency-modal" id="emergency-modal">
+    <div class="emergency-container">
+      <header class="emergency-header">
+        <h2><i data-lucide="alert-triangle"></i> 24시 긴급 동물병원 & 응급 가이드</h2>
+        <button class="emergency-close-btn" id="btn-emergency-close" aria-label="닫기">
+          <i data-lucide="x"></i>
+        </button>
+      </header>
+      <div class="emergency-body">
+        <div class="phone-cards">
+          <div class="phone-card">
+            <h4>🚨 양구종합동물병원 (주간/비상)</h4>
+            <p>강원특별자치도 양구군 양구읍 사명길 78</p>
+            <p>운영시간: 평일 09:00 - 19:00</p>
+            <a href="tel:033-481-7582" class="phone-call-link"><i data-lucide="phone"></i> 033-481-7582</a>
+          </div>
+          <div class="phone-card">
+            <h4>🚨 강원대 동물의학종합병원 (24시 야간연계)</h4>
+            <p>강원특별자치도 춘천시 강원대학길 1 (양구 연계 응급센터)</p>
+            <p>운영시간: 24시간 응급 의료센터 운영</p>
+            <a href="tel:033-250-6771" class="phone-call-link"><i data-lucide="phone"></i> 033-250-6771</a>
+          </div>
+        </div>
+
+        <div class="detail-divider"></div>
+
+        <h3>🏥 긴급상황 발생 시 행동 지침 (반려견 응급처치)</h3>
+        
+        <div class="guide-cards">
+          <div class="guide-card">
+            <h4><i data-lucide="shield-alert"></i> 1. 진드기 / 독충 / 살모사 교상</h4>
+            <p>풀숲에서 산책 후 진드기가 물었을 땐 손으로 떼지 말고 핀셋으로 머리 부분을 잡아 수직으로 떼어내거나 즉시 병원을 방문하세요. 뱀에 물렸을 경우 해당 부위를 심장보다 낮게 유지하고 상부를 가볍게 압박하여 춘천 응급센터로 즉시 이송하십시오.</p>
+          </div>
+          <div class="guide-card">
+            <h4><i data-lucide="sun"></i> 2. 여름철 아스팔트 열사병</h4>
+            <p>호흡이 급해지고 침을 많이 흘리며 혀가 자줏빛으로 변하면 즉시 그늘로 옮기고 찬물을 몸에 적셔 바람을 불어 체온을 낮춰야 합니다. 얼음물이나 강한 알코올 마사지는 혈관을 수축시켜 오히려 위험하니 미지근하거나 약간 시원한 물을 사용하세요.</p>
+          </div>
+          <div class="guide-card">
+            <h4><i data-lucide="bone"></i> 3. 계곡 및 야외 이물질 섭취</h4>
+            <p>계곡 뼈다귀나 야생 버섯, 독성 식물 등을 삼겼을 경우 억지로 구토를 유발하면 식도가 손상될 수 있으므로 삼킨 이물질의 종류를 확인(사진 촬영 등)하고 1시간 이내에 동물병원에서 최토제 처치를 받아야 합니다.</p>
+          </div>
+          <div class="guide-card">
+            <h4><i data-lucide="activity"></i> 4. 외상 및 낙상/골절</h4>
+            <p>한반도섬 데크나 광치계곡 바위에서 미끄러져 뼈를 다쳤을 때는 부목 대용(두꺼운 박스지 등)으로 다리를 고정해 통증을 줄이고, 반려견이 아픔 때문에 견주를 물 수 있으므로 수건으로 입을 가볍게 묶은 뒤 병원으로 이동하세요.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Place Registration Modal -->
+  <div class="register-modal" id="register-modal">
+    <div class="register-container">
+      <header class="register-header">
+        <h2><i data-lucide="plus-circle"></i> 새 반려견 동반 장소 등록</h2>
+        <button class="register-close-btn" id="btn-register-close" aria-label="닫기">
+          <i data-lucide="x"></i>
+        </button>
+      </header>
+      <form id="register-form" onsubmit="event.preventDefault();">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="reg-name">장소명 *</label>
+            <input type="text" id="reg-name" required placeholder="예: 양구 댕댕아일랜드">
+          </div>
+          <div class="form-group">
+            <label for="reg-category">카테고리 *</label>
+            <select id="reg-category" required>
+              <option value="관광지">관광지</option>
+              <option value="숙소">숙소</option>
+              <option value="식당/카페">식당/카페</option>
+              <option value="의료/편의">의료/편의</option>
+            </select>
+          </div>
+          <div class="form-group span-2">
+            <label for="reg-address">주소 *</label>
+            <input type="text" id="reg-address" required placeholder="예: 강원특별자치도 양구군 양구읍 사명길 10">
+          </div>
+          <div class="form-group">
+            <label for="reg-tel">전화번호</label>
+            <input type="text" id="reg-tel" placeholder="예: 033-123-4567">
+          </div>
+          <div class="form-group">
+            <label>위치 좌표 *</label>
+            <div class="coords-selector-group">
+              <button type="button" class="btn-map-picker" id="btn-trigger-picker">
+                <i data-lucide="map-pin"></i> 지도에서 위치 선택
+              </button>
+              <span class="coords-display" id="coords-status">미선택 (필수)</span>
+            </div>
+          </div>
+          <div class="form-group span-2">
+            <label>반려견 허용 범위</label>
+            <div class="checkbox-row">
+              <label class="checkbox-label"><input type="checkbox" id="reg-small" checked> 소형견 가능</label>
+              <label class="checkbox-label"><input type="checkbox" id="reg-medium" checked> 중형견 가능</label>
+              <label class="checkbox-label"><input type="checkbox" id="reg-large"> 대형견 가능</label>
+              <label class="checkbox-label"><input type="checkbox" id="reg-offleash"> 오프리쉬 구역 있음</label>
+            </div>
+          </div>
+          <div class="form-group span-2">
+            <label for="reg-tags">해시태그 (쉼표로 구분)</label>
+            <input type="text" id="reg-tags" placeholder="예: 잔디밭, 주차편리, 수영장">
+          </div>
+          <div class="form-group span-2">
+            <label for="reg-desc">장소 설명 *</label>
+            <textarea id="reg-desc" required placeholder="장소에 대한 유용하고 풍부한 소개글을 작성해 주세요..."></textarea>
+          </div>
+          <div class="form-group span-2">
+            <label for="reg-tip">댕댕 가이드 팁</label>
+            <textarea id="reg-tip" placeholder="동반 방문 시 주의사항이나 꿀팁을 적어주세요..."></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="submit-btn" id="btn-submit-registration">장소 등록하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- App Custom JS -->
+  <script src="app.js"></script>
+</body>
+</html>
