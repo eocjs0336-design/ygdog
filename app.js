@@ -294,7 +294,7 @@ const state = {
   mapEngine: "leaflet", // 'leaflet' 또는 'kakao'
   mapInstance: null,
   mapMarkers: [],
-  kakaoKey: localStorage.getItem("yanggu_kakao_key") || "",
+  kakaoKey: "",
   
   // 모바일 뷰 상태
   activeView: "list", // 'list' 또는 'map'
@@ -861,7 +861,6 @@ function initKakaoMap(apiKey) {
   }
   
   state.kakaoKey = apiKey;
-  localStorage.setItem("yanggu_kakao_key", apiKey);
   state.mapEngine = "kakao";
   
   // 카카오맵 스크립트 엘리먼트 로딩
@@ -1654,10 +1653,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 14.9 햄버거 메뉴 / 가이드 오버레이 초기화
   initMenuOverlay();
   
-  // 14.10 저장된 카카오 키가 있으면 기본 세팅 인풋에 노출
-  if (state.kakaoKey) {
-    document.getElementById("kakao-api-key").value = state.kakaoKey;
-  }
+
   
   // 14.11 앱 최초 지도 및 리스트 렌더링 실행
   initMap();
