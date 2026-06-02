@@ -444,7 +444,19 @@ const YANGGU_PLACES = [
 
 // 2. 전역 애플리케이션 상태 (State)
 const customPlacesStored = localStorage.getItem("yanggu_custom_places");
-const initialPlaces = customPlacesStored ? JSON.parse(customPlacesStored) : YANGGU_PLACES;
+let initialPlaces = [...YANGGU_PLACES];
+
+if (customPlacesStored) {
+  try {
+    const storedList = JSON.parse(customPlacesStored);
+    // 기본 YANGGU_PLACES에 없는 (ID가 기존 기본 항목에 중복되지 않는) 순수 사용자 등록 장소들만 필터링하여 합체
+    const baseIds = YANGGU_PLACES.map(p => p.id);
+    const userCreatedPlaces = storedList.filter(p => !baseIds.includes(p.id));
+    initialPlaces = [...YANGGU_PLACES, ...userCreatedPlaces];
+  } catch (e) {
+    console.error("로컬 스토리지 파싱 에러:", e);
+  }
+}
 
 const state = {
   places: initialPlaces,
