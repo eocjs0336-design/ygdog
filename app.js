@@ -458,6 +458,41 @@ if (customPlacesStored) {
   }
 }
 
+// 지형 스펙 및 웰컴 평점 디폴트 데이터 주입
+initialPlaces.forEach(place => {
+  if (place.id === 17) {
+    place.groundMaterial = "천연잔디";
+    place.shadeIndex = "그늘 풍부";
+    place.slopeGrade = "완만함";
+  } else if (place.id === 18) {
+    place.groundMaterial = "천연잔디 & 흙길";
+    place.shadeIndex = "소나무 그늘막";
+    place.slopeGrade = "평탄함";
+  } else if (place.id === 19) {
+    place.groundMaterial = "천연잔디";
+    place.shadeIndex = "그늘 보통";
+    place.slopeGrade = "경사 있음";
+  } else {
+    if (place.category === "관광지") {
+      place.groundMaterial = "흙길 & 데크길";
+      place.shadeIndex = "그늘 보통";
+      place.slopeGrade = "완만함";
+    } else if (place.category === "식당/카페") {
+      place.groundMaterial = "실내/야외 잔디밭";
+      place.shadeIndex = "그늘막 비치";
+      place.slopeGrade = "평탄함";
+    } else if (place.category === "숙소") {
+      place.groundMaterial = "천연잔디 & 자갈";
+      place.shadeIndex = "그늘 보통";
+      place.slopeGrade = "평탄함";
+    } else {
+      place.groundMaterial = "실내 & 아스팔트";
+      place.shadeIndex = "에어컨 실내";
+      place.slopeGrade = "평탄함";
+    }
+  }
+});
+
 const state = {
   places: initialPlaces,
   filteredPlaces: initialPlaces,
@@ -1049,7 +1084,7 @@ function showDetailPanel(place) {
           <span class="category-badge ${place.category}">${place.category}</span>
           <span class="detail-address"><i data-lucide="map-pin"></i> 양구군 관내</span>
         </div>
-        <h2 class="detail-title">${place.name}</h2>
+        <h2 class="detail-title">${place.name} <span class="welcome-badge-inline">🐾 ${getAverageRatingText(place.id)}</span></h2>
       </div>
 
       <!-- Trust Grade Disclaimer -->
@@ -1066,6 +1101,12 @@ function showDetailPanel(place) {
           ${largeText}
           ${offleashText}
         </div>
+      </div>
+
+      <div class="detail-terrain-specs">
+        <span class="terrain-badge"><i data-lucide="layers"></i> 바닥: ${place.groundMaterial || '흙길'}</span>
+        <span class="terrain-badge"><i data-lucide="sun"></i> 그늘: ${place.shadeIndex || '그늘 보통'}</span>
+        <span class="terrain-badge"><i data-lucide="trending-up"></i> 경사: ${place.slopeGrade || '평탄'}</span>
       </div>
 
       <div class="detail-divider"></div>
@@ -1143,6 +1184,17 @@ function showDetailPanel(place) {
         </div>
         
         <div class="review-form">
+          <div class="welcome-rating-selector">
+            <span>🐾 댕댕이 웰컴 지수:</span>
+            <div class="paw-stars" id="paw-rating-stars-${place.id}">
+              <span class="paw-star active" data-value="1" onclick="selectPawStar(${place.id}, 1)">🐾</span>
+              <span class="paw-star active" data-value="2" onclick="selectPawStar(${place.id}, 2)">🐾</span>
+              <span class="paw-star active" data-value="3" onclick="selectPawStar(${place.id}, 3)">🐾</span>
+              <span class="paw-star active" data-value="4" onclick="selectPawStar(${place.id}, 4)">🐾</span>
+              <span class="paw-star active" data-value="5" onclick="selectPawStar(${place.id}, 5)">🐾</span>
+            </div>
+            <input type="hidden" id="review-rating-input-${place.id}" value="5">
+          </div>
           <textarea id="review-text-input-${place.id}" placeholder="댕댕이와 함께한 솔직한 방문 경험을 공유해 주세요..."></textarea>
           <div class="review-form-bottom">
             <input type="text" id="review-author-input-${place.id}" placeholder="작성자 닉네임" autocomplete="off">
@@ -1555,10 +1607,10 @@ function getPlaceReviews(placeId) {
   return MOCK_REVIEWS[placeId] || [];
 }
 
-function addPlaceReview(placeId, author, text) {
+function addPlaceReview(placeId, author, text, rating) {
   const reviews = getPlaceReviews(placeId);
   const date = new Date().toISOString().split('T')[0];
-  reviews.unshift({ author: author || "익명 견주", date: date, text: text });
+  reviews.unshift({ author: author || "익명 견주", date: date, text: text, rating: rating || 5 });
   localStorage.setItem(`yanggu_reviews_${placeId}`, JSON.stringify(reviews));
   return reviews;
 }
@@ -1566,17 +1618,19 @@ function addPlaceReview(placeId, author, text) {
 window.submitReview = function(placeId) {
   const textInput = document.getElementById(`review-text-input-${placeId}`);
   const authorInput = document.getElementById(`review-author-input-${placeId}`);
+  const ratingInput = document.getElementById(`review-rating-input-${placeId}`);
   if (!textInput || !authorInput) return;
   
   const text = textInput.value.trim();
   const author = authorInput.value.trim();
+  const rating = ratingInput ? parseInt(ratingInput.value) : 5;
   
   if (text === "" || author === "") {
     alert("작성자 닉네임과 후기 내용을 모두 입력해 주세요.");
     return;
   }
   
-  addPlaceReview(placeId, author, text);
+  addPlaceReview(placeId, author, text, rating);
   
   const place = state.places.find(p => p.id === placeId);
   if (place) {
@@ -2202,8 +2256,232 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   filterPlaces();
+
+  // 14.12 드래그 투 스크롤 바인딩
+  makeHorizontalScrollable(".category-filters");
+  makeHorizontalScrollable(".condition-chips");
+
+  // 14.13 편의시설 마커 핀 토글 리스너 바인딩
+  let facilitiesMarkers = [];
+  let isFacilitiesActive = false;
+
+  const btnToggleFacilities = document.getElementById("btn-toggle-facilities");
+  if (btnToggleFacilities) {
+    btnToggleFacilities.addEventListener("click", () => {
+      isFacilitiesActive = !isFacilitiesActive;
+      btnToggleFacilities.classList.toggle("active", isFacilitiesActive);
+
+      if (isFacilitiesActive) {
+        showFacilitiesOnMap();
+        showToast("양구군 내 반려견 편의시설 핀이 활성화되었습니다.", "success");
+      } else {
+        clearFacilitiesFromMap();
+        showToast("반려견 편의시설 핀이 해제되었습니다.", "success");
+      }
+    });
+  }
+
+  const Y_FACILITIES = [
+    { name: "레포츠공원 공용 배변 수거함", lat: 38.1095, lng: 127.9785, desc: "레포츠공원 자연놀이터 야외 잔디광장 부근 위생 봉투 비치 수거함" },
+    { name: "양구종합약국 (동물비상약 보유)", lat: 38.1052, lng: 127.9885, desc: "반려용 해충 퇴치제, 자극 없는 상처 소독약 등 동물 비상약 구비" },
+    { name: "소양호 댕댕이 펫티켓 수거함", lat: 38.0772, lng: 127.9942, desc: "소양호 선착장 입구 부근 반려견 전용 공용 배변 봉투함" }
+  ];
+
+  function showFacilitiesOnMap() {
+    clearFacilitiesFromMap();
+    if (!state.mapInstance) return;
+
+    Y_FACILITIES.forEach(fac => {
+      if (state.mapEngine === "leaflet") {
+        const facIcon = L.icon({
+          iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png",
+          shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41]
+        });
+
+        const marker = L.marker([fac.lat, fac.lng], { icon: facIcon }).addTo(state.mapInstance);
+        marker.bindPopup(`
+          <div style="padding: 10px; width: 180px; font-family: sans-serif;">
+            <strong style="color: purple; font-size:13.5px;">🐾 ${fac.name}</strong>
+            <p style="margin: 6px 0 0 0; font-size:11px; color:#555; line-height:1.4;">${fac.desc}</p>
+          </div>
+        `);
+        facilitiesMarkers.push(marker);
+      } else if (state.mapEngine === "kakao" && window.kakao && window.kakao.maps) {
+        const latlng = new kakao.maps.LatLng(fac.lat, fac.lng);
+        const imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+        const imageSize = new kakao.maps.Size(24, 35);
+        const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+        const marker = new kakao.maps.Marker({
+          map: state.mapInstance,
+          position: latlng,
+          title: fac.name,
+          image: markerImage
+        });
+
+        const contentHtml = `
+          <div style="padding:10px; width:160px; font-family: sans-serif; font-size:11px;">
+            <strong style="color:purple; font-weight:700;">🐾 ${fac.name}</strong>
+            <p style="margin:4px 0 0 0; color:#666; font-size:10px; line-height:1.3;">${fac.desc}</p>
+          </div>
+        `;
+
+        const infowindow = new kakao.maps.InfoWindow({
+          content: contentHtml,
+          removable: true
+        });
+
+        kakao.maps.event.addListener(marker, 'click', () => {
+          infowindow.open(state.mapInstance, marker);
+        });
+
+        facilitiesMarkers.push(marker);
+      }
+    });
+  }
+
+  function clearFacilitiesFromMap() {
+    facilitiesMarkers.forEach(m => {
+      if (state.mapEngine === "leaflet") {
+        state.mapInstance.removeLayer(m);
+      } else if (state.mapEngine === "kakao" && window.kakao && window.kakao.maps) {
+        m.setMap(null);
+      }
+    });
+    facilitiesMarkers = [];
+  }
   
   // Lucide 아이콘 파싱
   lucide.createIcons();
+
+  // 14.14 아스팔트 발바닥 화상 예방 시간표 플로팅 버튼 & 팝업 토글 리스너
+  const btnToggleAsphalt = document.getElementById("btn-toggle-asphalt");
+  const asphaltPopup = document.getElementById("asphalt-timetable-popup");
+  const btnCloseAsphalt = document.getElementById("btn-close-asphalt");
+
+  if (btnToggleAsphalt && asphaltPopup && btnCloseAsphalt) {
+    btnToggleAsphalt.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isHidden = asphaltPopup.classList.contains("hidden");
+      if (isHidden) {
+        asphaltPopup.classList.remove("hidden");
+        btnToggleAsphalt.classList.add("active");
+        
+        // 화면 정돈을 위해 기존 오픈된 상세 정보 패널 닫기
+        if (typeof closeDetailPanel === "function") {
+          closeDetailPanel();
+        }
+      } else {
+        asphaltPopup.classList.add("hidden");
+        btnToggleAsphalt.classList.remove("active");
+      }
+    });
+
+    btnCloseAsphalt.addEventListener("click", (e) => {
+      e.stopPropagation();
+      asphaltPopup.classList.add("hidden");
+      btnToggleAsphalt.classList.remove("active");
+    });
+
+    // 지도 영역 클릭 시 팝업 닫기 사용성 제공
+    const mapArea = document.getElementById("map");
+    if (mapArea) {
+      mapArea.addEventListener("click", () => {
+        asphaltPopup.classList.add("hidden");
+        btnToggleAsphalt.classList.remove("active");
+      });
+    }
+  }
+
+  // 14.15 모바일 전용 장소 목록 스크롤 반응형 검색 필터 숨김/보임 로직
+  const placesList = document.getElementById("places-list");
+  const searchFilterSection = document.querySelector(".search-filter-section");
+  let lastScrollTop = 0;
+
+  if (placesList && searchFilterSection) {
+    placesList.addEventListener("scroll", () => {
+      if (window.innerWidth <= 768) {
+        const scrollTop = placesList.scrollTop;
+        
+        // 미세한 스크롤 변화(10px 이하)는 반응하지 않아 부드러운 사용성 제공
+        if (Math.abs(lastScrollTop - scrollTop) <= 10) return;
+
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+          // 아래로 스크롤 시 검색 필터부 부드럽게 접음
+          searchFilterSection.classList.add("collapsed");
+        } else if (scrollTop < lastScrollTop) {
+          // 위로 스크롤 시 검색 필터부 다시 펼침
+          searchFilterSection.classList.remove("collapsed");
+        }
+        lastScrollTop = scrollTop;
+      } else {
+        // 데스크톱 화면으로 복귀 시 강제 리셋
+        searchFilterSection.classList.remove("collapsed");
+      }
+    });
+  }
 });
+
+// ==========================================
+// 15. 추가 고도화 유틸리티 및 웰컴 평점 계산 헬퍼
+// ==========================================
+function getAverageRatingText(placeId) {
+  const reviews = getPlaceReviews(placeId);
+  if (reviews.length === 0) return "5.0 (신규)";
+  const total = reviews.reduce((sum, r) => sum + (r.rating || 5), 0);
+  return `${(total / reviews.length).toFixed(1)} (${reviews.length}개 후기)`;
+}
+
+window.selectPawStar = function(placeId, score) {
+  const starsContainer = document.getElementById(`paw-rating-stars-${placeId}`);
+  const inputEl = document.getElementById(`review-rating-input-${placeId}`);
+  if (starsContainer && inputEl) {
+    inputEl.value = score;
+    const stars = starsContainer.querySelectorAll(".paw-star");
+    stars.forEach(star => {
+      const val = parseInt(star.getAttribute("data-value"));
+      if (val <= score) {
+        star.classList.add("active");
+      } else {
+        star.classList.remove("active");
+      }
+    });
+  }
+};
+
+function makeHorizontalScrollable(selector) {
+  const slider = document.querySelector(selector);
+  if (!slider) return;
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener("mousedown", (e) => {
+    isDown = true;
+    slider.classList.add("dragging");
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    isDown = false;
+    slider.classList.remove("dragging");
+  });
+
+  slider.addEventListener("mouseup", () => {
+    isDown = false;
+    slider.classList.remove("dragging");
+  });
+
+  slider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+}
 

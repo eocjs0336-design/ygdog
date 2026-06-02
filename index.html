@@ -141,10 +141,49 @@
         <i data-lucide="list"></i> <span>목록 보기</span>
       </button>
 
+      <!-- Floating Facilities Toggle Button (FAB) on Map Area -->
+      <button class="floating-facilities-btn" id="btn-toggle-facilities" aria-label="반려견 편의 핀 토글">
+        <i data-lucide="map-pin"></i> <span>편의시설</span>
+      </button>
+
       <!-- Floating Emergency Action Button (FAB) on Map Area -->
       <button class="floating-emergency-btn" id="btn-emergency-open" aria-label="24시 긴급 동물병원 & 응급 가이드">
         <i data-lucide="phone-call"></i>
       </button>
+
+      <!-- Floating Asphalt Timetable Button (FAB) on Map Area -->
+      <button class="floating-asphalt-btn" id="btn-toggle-asphalt" aria-label="발바닥 화상 예방 시간표">
+        <i data-lucide="thermometer"></i> <span>발바닥보호</span>
+      </button>
+
+      <!-- Asphalt Timetable Overlay Popup Card -->
+      <div class="asphalt-timetable-popup hidden" id="asphalt-timetable-popup">
+        <div class="popup-header">
+          <h3><i data-lucide="thermometer"></i> 발바닥 화상 예방 시간표</h3>
+          <button class="popup-close-btn" id="btn-close-asphalt" aria-label="닫기">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="popup-body">
+          <p class="popup-info-text">뜨거운 아스팔트는 반려견에게 심각한 화상을 입힐 수 있습니다. 야외 산책 전 위험 요소를 꼭 체크해 주세요.</p>
+          <div class="asphalt-safety-timetable-inner">
+            <div class="timetable-grid">
+              <div class="time-slot risk-high">
+                <span class="slot-time">12:00 ~ 16:00</span>
+                <span class="slot-status">화상 위험 ❌ (실내 추천)</span>
+              </div>
+              <div class="time-slot risk-medium">
+                <span class="slot-time">16:00 ~ 18:00</span>
+                <span class="slot-status">조심 산책 ⚠️ (흙길 추천)</span>
+              </div>
+              <div class="time-slot risk-low">
+                <span class="slot-time">18:00 이후</span>
+                <span class="slot-status">매우 안전 🟢 (아스팔트 가능)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Map Footer Disclaimer Banner (One-line) -->
       <footer class="map-footer">

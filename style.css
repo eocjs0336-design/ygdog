@@ -1452,6 +1452,23 @@ body {
     flex-direction: column; /* Stack vertically */
   }
 
+  /* Search & Filter Section Mobile Transition */
+  .search-filter-section {
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, opacity 0.3s ease, border-bottom 0.3s ease, gap 0.3s ease;
+    max-height: 250px;
+    overflow: hidden;
+  }
+  
+  .search-filter-section.collapsed {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    border-bottom: 1px solid transparent;
+    pointer-events: none;
+    gap: 0;
+  }
+
   /* Sidebar takes full screen height when toggled */
   .sidebar {
     width: 100%;
@@ -3348,3 +3365,408 @@ body {
     height: 20px;
   }
 }
+
+/* ==========================================
+   드래그 투 스크롤 & 카테고리 필터 마우스 조작 최적화
+   ========================================== */
+.category-filters, .condition-chips {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.category-filters.dragging, .condition-chips.dragging {
+  cursor: grabbing;
+}
+
+/* ==========================================
+   반려견 편의시설 토글 플로팅 버튼 (Facilities FAB)
+   ========================================== */
+.floating-facilities-btn {
+  position: absolute;
+  right: 24px;
+  bottom: 150px; /* 긴급 FAB(84px) 위에 보기 좋게 위치 */
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-white);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 99;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-facilities-btn i {
+  width: 16px;
+  height: 16px;
+}
+
+.floating-facilities-btn:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.floating-facilities-btn.active {
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+  box-shadow: 0 4px 12px rgba(46, 90, 68, 0.3);
+}
+
+@media (max-width: 768px) {
+  .floating-facilities-btn {
+    right: 20px;
+    bottom: 154px;
+    height: 38px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+}
+
+/* ==========================================
+   상세 패널 지형 및 환경 스펙 뱃지 스타일
+   ========================================== */
+.detail-terrain-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: -8px;
+  margin-bottom: 8px;
+}
+
+.terrain-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.terrain-badge i {
+  width: 13px;
+  height: 13px;
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   발바닥 웰컴 평점 선택기 & 별점 렌더링
+   ========================================== */
+.welcome-rating-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  background-color: var(--bg-light);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.welcome-rating-selector span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.paw-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.paw-star {
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.15s ease;
+}
+
+.paw-star.active {
+  opacity: 1;
+  transform: scale(1.1);
+  text-shadow: 0 0 4px rgba(46, 90, 68, 0.2);
+}
+
+.welcome-badge-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--accent-color);
+  background-color: rgba(224, 122, 95, 0.08);
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+/* ==========================================
+   아스팔트 발바닥 화상 예방 시간표 위젯
+   ========================================== */
+.asphalt-safety-timetable {
+  margin-top: 14px;
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.timetable-header {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.timetable-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.time-slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.time-slot.risk-high {
+  background-color: rgba(230, 57, 70, 0.08);
+  color: var(--error-color);
+}
+
+.time-slot.risk-medium {
+  background-color: rgba(244, 162, 97, 0.08);
+  color: #E2843A;
+}
+
+.time-slot.risk-low {
+  background-color: rgba(42, 157, 143, 0.08);
+  color: var(--success-color);
+}
+
+/* ==========================================
+   발바닥 화상 예방 시간표 FAB & 팝업 카드 스타일
+   ========================================== */
+
+/* 신규 시간표 FAB 버튼 */
+.floating-asphalt-btn {
+  position: absolute;
+  right: 24px;
+  bottom: 216px; /* 편의시설 FAB(150px) 위에 배치 */
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #F4A261, #E76F51); /* 오렌지 계열 그라데이션 */
+  border: none;
+  color: var(--bg-white);
+  box-shadow: 0 4px 14px rgba(231, 111, 81, 0.35);
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 99;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-asphalt-btn i {
+  width: 16px;
+  height: 16px;
+}
+
+.floating-asphalt-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231, 111, 81, 0.5);
+  background: linear-gradient(135deg, #FFB47A, #F28667);
+}
+
+.floating-asphalt-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(231, 111, 81, 0.3);
+}
+
+.floating-asphalt-btn.active {
+  background: #E76F51;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(231, 111, 81, 0.4);
+}
+
+/* 시간표 팝업 카드 */
+.asphalt-timetable-popup {
+  position: absolute;
+  right: 24px;
+  bottom: 272px; /* FAB 버튼 위에 살짝 띄워서 오버레이 */
+  width: 320px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: popupSlideUp 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@keyframes popupSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.asphalt-timetable-popup.hidden {
+  display: none !important;
+}
+
+.asphalt-timetable-popup .popup-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(46, 90, 68, 0.03);
+}
+
+.asphalt-timetable-popup .popup-header h3 {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.asphalt-timetable-popup .popup-header h3 i {
+  width: 15px;
+  height: 15px;
+  color: #E76F51;
+}
+
+.asphalt-timetable-popup .popup-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.asphalt-timetable-popup .popup-close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--error-color);
+}
+
+.asphalt-timetable-popup .popup-body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.asphalt-timetable-popup .popup-info-text {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+  word-break: keep-all;
+}
+
+/* 팝업 내부 시간표 슬롯 재사용 연동 */
+.asphalt-safety-timetable-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.asphalt-safety-timetable-inner .timetable-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.asphalt-safety-timetable-inner .time-slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.asphalt-safety-timetable-inner .time-slot.risk-high {
+  background-color: rgba(230, 57, 70, 0.08);
+  color: var(--error-color);
+}
+
+.asphalt-safety-timetable-inner .time-slot.risk-medium {
+  background-color: rgba(244, 162, 97, 0.08);
+  color: #E2843A;
+}
+
+.asphalt-safety-timetable-inner .time-slot.risk-low {
+  background-color: rgba(42, 157, 143, 0.08);
+  color: var(--success-color);
+}
+
+/* 모바일 화면(해상도 768px 이하)일 때 위치 및 반응형 최적화 */
+@media (max-width: 768px) {
+  .floating-asphalt-btn {
+    right: 20px;
+    bottom: 214px; /* 편의시설 FAB(154px) 위에 보기 좋게 안착 */
+    height: 38px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+  .floating-asphalt-btn i {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .asphalt-timetable-popup {
+    right: 20px;
+    bottom: 264px;
+    width: calc(100% - 40px);
+    max-width: 340px;
+  }
+}
+
