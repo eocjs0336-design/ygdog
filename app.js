@@ -19,7 +19,13 @@ const YANGGU_PLACES = [
     tags: ["산책로", "포토존", "전망대", "주차가능"],
     tip: "짚라인 탑승장 아래 잔디밭이 넓어 반려견과 산책하기 최고입니다. 호숫가 데크에서는 강풍이 불 수 있으니 하네스를 꼼꼼히 확인해 주세요.",
     description: "파로호 상류에 조성된 국내 최대 규모의 인공 습지 섬으로, 한반도 모양을 본떠 만들었습니다. 아름다운 수변 산책로와 다채로운 한반도 랜드마크 조형물이 가득하며, 강아지와 나무 데크길을 걷기 좋습니다.",
-    imageUrl: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "A",
+    officialUrl: "https://www.ygtour.kr",
+    sourceName: "양구군 문화관광",
+    sourceUrl: "https://www.ygtour.kr",
+    lastUpdated: "2026-06-02",
+    purposeTags: ["관광지", "산책"]
   },
   {
     id: 2,
@@ -36,7 +42,13 @@ const YANGGU_PLACES = [
     tags: ["피톤치드", "산림욕", "야생화", "입장료있음"],
     tip: "안전 예방을 위해 목줄 길이를 1.5m 이내로 유지해야 하며, 실내 온실 및 DMZ 야생동물생태관 내부에는 동반 입장이 불가능합니다. 야외 산책로 전 구역은 이용 가능합니다.",
     description: "대암산 기슭의 청정 자연 속에 위치한 수목원입니다. DMZ 야생화분재원, 생태 숲, 튤립 정원 등 아름다운 테마정원들이 가득하여 피톤치드를 호흡하며 산림욕을 동반하기에 제격인 에코 관광지입니다.",
-    imageUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "A",
+    officialUrl: "https://www.yanggu.go.kr/forest/",
+    sourceName: "양구수목원 공식",
+    sourceUrl: "https://www.yanggu.go.kr/forest/",
+    lastUpdated: "2026-06-02",
+    purposeTags: ["관광지", "산책"]
   },
   {
     id: 3,
@@ -53,7 +65,13 @@ const YANGGU_PLACES = [
     tags: ["꽃밭", "봄가을추천", "평지산책", "포토존"],
     tip: "그늘이 다소 부족할 수 있으니 한여름 낮 시간대는 피하고, 댕댕이를 위한 음용수를 넉넉히 챙겨 가시는 것을 권장합니다.",
     description: "계절마다 유채꽃, 양귀비, 메밀꽃, 코스모스 등 다채로운 꽃들이 만발하는 호수 위 정원입니다. 경사가 전혀 없는 평탄한 흙길 산책 코스라 노령견이나 어린 강아지도 무리 없이 산책할 수 있습니다.",
-    imageUrl: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "A",
+    officialUrl: "https://www.ygtour.kr",
+    sourceName: "양구군 문화관광",
+    sourceUrl: "https://www.ygtour.kr",
+    lastUpdated: "2026-06-02",
+    purposeTags: ["관광지", "산책"]
   },
   {
     id: 4,
@@ -70,7 +88,13 @@ const YANGGU_PLACES = [
     tags: ["계곡", "여름물놀이", "오프리쉬구역", "그늘산책"],
     tip: "일부 얕은 물살 구역(안내 표지판 근처)에 한해 오프리쉬 물놀이가 일시적으로 허용됩니다. 단, 다른 등산객이 보이면 즉시 목줄을 통제하셔야 합니다.",
     description: "사계절 맑은 물이 굽이쳐 흐르는 울창한 숲속 계곡입니다. 둘레길이 잘 닦여 있어 나뭇그늘 속 시원한 계곡 소리를 들으며 반려견과 트레킹 및 얕은 계곡물에서 발 담그며 힐링할 수 있는 장소입니다.",
-    imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "B",
+    officialUrl: null,
+    sourceName: "국립자연휴양림관리소",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["관광지", "산책"]
   },
   {
     id: 5,
@@ -87,7 +111,13 @@ const YANGGU_PLACES = [
     tags: ["캠핑", "반려견전용구역", "오프리쉬운동장", "샤워장"],
     tip: "A구역(반려견 동반 전용 사이트) 내에는 펜스가 쳐진 잔디밭 펫 플레이그라운드가 있어 목줄 없이 뛰놀 수 있습니다. 예약 시 미리 반려견 동반 사항을 명시해야 합니다.",
     description: "양구군에서 직접 운영하는 자연 친화적 캠핑장으로, 반려견 동반 캠퍼들을 위한 전용 구역과 안전 펜스를 완비했습니다. 맑은 공기와 넓은 데크, 깨끗한 위생 시설로 애견 동반 캠핑족에게 인기가 높습니다.",
-    imageUrl: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "A",
+    officialUrl: "https://www.ygtour.kr/humanities_camp",
+    sourceName: "양구군 시설관리공단",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["숙박"]
   },
   {
     id: 6,
@@ -104,7 +134,13 @@ const YANGGU_PLACES = [
     tags: ["독채펜션", "애견운동장", "수영장", "바비큐"],
     tip: "10kg 이상 대형견의 경우 추가 요금이 발생할 수 있으니 사전 문의가 필요합니다. 잔디 운동장은 이중 펜스로 안전하게 마감되어 안심할 수 있습니다.",
     description: "대암산 자락 숲속에 조용히 자리 잡은 반려견 전용/동반 독채 펜션입니다. 넓고 폭신한 인조잔디 운동장과 여름철 이용 가능한 댕댕이 전용 수영장이 마련되어 있어 견주와 반려견 모두 자유로운 시간을 보낼 수 있습니다.",
-    imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "B",
+    officialUrl: null,
+    sourceName: "네이버 플레이스",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["숙박"]
   },
   {
     id: 7,
@@ -121,7 +157,13 @@ const YANGGU_PLACES = [
     tags: ["별자리관측", "캠핑장", "잔디광장", "주차가능"],
     tip: "천문대 과학관 내부 전시실에는 동반이 불가하지만 야외 천체캠핑장과 잔디밭 산책은 목줄 착용 하에 동반 가능합니다. 밤에는 빛 공해가 적어 댕댕이와 멋진 별하늘 샷을 찍을 수 있습니다.",
     description: "대한민국의 지리적 정중앙점에 세워진 천문대 부설 캠핑장입니다. 밤하늘 쏟아지는 별을 관측하며 반려견과 감성적인 숲속 밤을 보낼 수 있는 이색 숙박 공간입니다.",
-    imageUrl: "https://images.unsplash.com/photo-1526495124232-a02e18494d17?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1526495124232-a02e18494d17?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "A",
+    officialUrl: "https://www.yanggu.go.kr/observatory/",
+    sourceName: "국토정중앙천문대",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["숙박", "관광지"]
   },
   {
     id: 8,
@@ -138,7 +180,13 @@ const YANGGU_PLACES = [
     tags: ["글램핑", "개별펜스", "애견침대", "감성캠핑"],
     tip: "각 텐트마다 개별 울타리가 쳐져 있어 프라이빗하게 오프리쉬로 고기를 구워 먹을 수 있습니다. 어메니티로 애견용 수건, 배변패드, 전용 샴푸가 기본 제공됩니다.",
     description: "캠핑의 감성과 펜션의 편안함을 결합한 댕댕이 동반 전용 글램핑장입니다. 럭셔리한 텐트 실내에 강아지 전용 침대와 밥그릇이 구비되어 있어 빈손으로 가볍게 들러 힐링할 수 있는 프리미엄 숙소입니다.",
-    imageUrl: "https://images.unsplash.com/photo-1533873984035-25970ab07461?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1533873984035-25970ab07461?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "B",
+    officialUrl: null,
+    sourceName: "야놀자 등록정보",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["숙박"]
   },
   {
     id: 9,
@@ -155,7 +203,13 @@ const YANGGU_PLACES = [
     tags: ["디저트카페", "인조잔디", "실내외동반", "포토존"],
     tip: "시그니처 메뉴인 '양구시래기 라떼'가 독특하고 맛있습니다. 야외 인조잔디 펜스 놀이터에서는 사장님이 기르시는 상주견 '양구'가 반겨줍니다.",
     description: "양구 국토정중앙 '배꼽' 테마를 재치 있게 녹인 이색 애견동반 카페입니다. 강아지 전용 음료인 '멍스프레소'도 판매하며, 야외 운동장에서는 오프리쉬로 뛰어놀 수 있어 반려인들에게 양구 내 필수 코스로 손꼽힙니다.",
-    imageUrl: "https://images.unsplash.com/photo-1554818538-98e045d45ac8?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1554818538-98e045d45ac8?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "B",
+    officialUrl: "https://instagram.com/cafe_baekkob",
+    sourceName: "인스타그램 공식",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["카페·식당"]
   },
   {
     id: 10,
@@ -172,7 +226,13 @@ const YANGGU_PLACES = [
     tags: ["정원카페", "베이커리", "실내동반", "감성인테리어"],
     tip: "실내에서는 리드줄을 짧게 잡거나 케이지(혹은 개모차)를 이용해 주셔야 합니다. 정원 야외 테라스석은 목줄 착용 시 비교적 자유롭게 머무실 수 있습니다.",
     description: "작지만 아늑하고 감성적인 정원이 딸린 한옥풍 베이커리 카페입니다. 수제 스콘과 에이드가 훌륭하며 조용하고 차분한 분위기 속에 반려견과 힐링 브런치를 즐기기에 좋습니다.",
-    imageUrl: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "B",
+    officialUrl: null,
+    sourceName: "인스타그램 공식",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["카페·식당"]
   },
   {
     id: 11,
@@ -189,7 +249,13 @@ const YANGGU_PLACES = [
     tags: ["손두부", "야외테이블", "로컬맛집", "한식"],
     tip: "반려견 동반 시 식당 건물 외부의 지붕이 있는 야외 평상 및 테이블 구역에서만 식사가 가능합니다. 전통 가마솥으로 끓여내는 두부전골이 일품입니다.",
     description: "양구산 콩만을 사용해 매일 아침 가마솥에 손수 두부를 만드는 로컬 맛집입니다. 담백하고 고소한 두부와 칼칼한 두부전골을 맛볼 수 있으며, 넓은 마당 야외석에서 반려견과 동반 식사할 수 있습니다.",
-    imageUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "C",
+    officialUrl: null,
+    sourceName: "네이버 지도 등록",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["카페·식당"]
   },
   {
     id: 12,
@@ -206,7 +272,13 @@ const YANGGU_PLACES = [
     tags: ["시래기요리", "소형견전용", "룸완비", "사전예약추천"],
     tip: "동반 가능한 실내 전용 프라이빗 룸(2개)이 있어 사전 전화 예약을 꼭 하고 가시는 편이 좋습니다. 이동가방이나 켄넬은 필수 지참하셔야 합니다.",
     description: "양구 특산물인 명품 '펀치볼 시래기'를 주재료로 하는 웰빙 시래기 밥상 전문점입니다. 시래기 생선조림과 갈비찜이 유명하며 깔끔하고 편안한 개별 룸에서 반려견과 조용하게 한식을 즐길 수 있습니다.",
-    imageUrl: "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "B",
+    officialUrl: null,
+    sourceName: "식신 맛집 등록",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["카페·식당"]
   },
   {
     id: 13,
@@ -223,7 +295,13 @@ const YANGGU_PLACES = [
     tags: ["동물병원", "24시간연계", "수술전문", "친절함"],
     tip: "평일은 19:00까지 정상 진료하며, 야간 응급 상황 발생 시에는 춘천 종합병원 응급의학센터로 즉시 연계해 드리는 비상 전원 시스템을 운영합니다.",
     description: "양구 관내에서 가장 신뢰받는 종합 동물병원입니다. 내과, 외과 전문 진료는 물론 여행 중 발생할 수 있는 긴급 골절, 벌레 물림 등의 응급처치가 가능하며 원장님의 세심한 설명이 돋보입니다.",
-    imageUrl: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "A",
+    officialUrl: null,
+    sourceName: "양구군 보건소 등록",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["의료/편의"]
   },
   {
     id: 14,
@@ -240,7 +318,13 @@ const YANGGU_PLACES = [
     tags: ["동물병원", "기초진료", "예방접종", "친절한설명"],
     tip: "토요일은 13:00까지 진료합니다. 영양제 및 관절 약, 구충제 처방이 신속하게 가능하여 여행 중 비상약 수급에 용이합니다.",
     description: "양구 시내 중심가에 위치하여 접근성이 매우 좋은 1차 진료 중심의 동물병원입니다. 진드기 예방약 처방 및 간단한 외상 소독 처리가 주 진료 분야로 여행객들이 가볍게 들르기에 적합합니다.",
-    imageUrl: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "A",
+    officialUrl: null,
+    sourceName: "양구군 보건소 등록",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["의료/편의"]
   },
   {
     id: 15,
@@ -257,7 +341,13 @@ const YANGGU_PLACES = [
     tags: ["위생미용", "스파케어", "예약제", "당일예약가능"],
     tip: "야외 물놀이 후 모래나 흙이 묻은 댕댕이를 위한 스파 목욕 서비스가 인기입니다. 최소 2시간 전 전화 예약을 하셔야 진료 후 미용이 원활합니다.",
     description: "가위컷 전문 및 스파 살롱 애견 미용실입니다. 자극이 적은 친환경 천연 샴푸만을 사용하며, 댕댕이가 스트레스를 받지 않는 긍정 강화 미용을 지향하여 외지 견주들도 안심하고 맡길 수 있습니다.",
-    imageUrl: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "C",
+    officialUrl: null,
+    sourceName: "카카오맵 업체등록",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["의료/편의"]
   },
   {
     id: 16,
@@ -274,7 +364,81 @@ const YANGGU_PLACES = [
     tags: ["애견용품", "수제간식", "하네스보완", "사료선택폭넓음"],
     tip: "여행지에서 유용하게 쓸 수 있는 애견용 물휴지, 배변 봉투, 모기 퇴치제 펫 스프레이 등을 합리적인 가격에 즉시 구매할 수 있어 요긴합니다.",
     description: "다양한 국내외 프리미엄 브랜드의 용품과 건식/습식 사료, 강아지 수제 간식, 안전 하네스, 이동 가방 등을 대규모 매장에 갖춘 양구 최대 펫용품 스토어입니다.",
-    imageUrl: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "B",
+    officialUrl: "http://petmart.co.kr",
+    sourceName: "펫마트 홈페이지",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+  },
+  {
+    id: 17,
+    name: "민트초코캠핑장",
+    category: "숙소",
+    address: "강원특별자치도 양구군 양구읍 소양호로 2597-25",
+    lat: 38.0776,
+    lng: 127.9947,
+    tel: "010-7250-5010",
+    allowSmall: true,
+    allowMedium: true,
+    allowLarge: true,
+    offLeash: true,
+    tags: ["애견캠핑", "개별울타리", "매점보유", "소양호전망"],
+    tip: "각 텐트 사이트마다 개별 펜스(울타리)가 견고하게 둘러쳐 있어 눈치 보지 않고 안전하게 오프리쉬로 뛰어놀 수 있습니다. 스파 욕조와 건조기가 갖춰진 애견 목욕 시설이 요긴합니다.",
+    description: "소양호 선착장 가기 전 청정 숲속 자락에 위치한 애견 전용 명품 캠핑장입니다. 개별 화장실과 샤워실을 완비하여 극강의 프라이빗함을 제공하며, 넓고 폭신한 천연잔디 운동장에서 자유로운 댕댕이 소통이 가능합니다.",
+    imageUrl: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "A",
+    officialUrl: null,
+    sourceName: "강원 댕댕여지도 수록",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["숙박"]
+  },
+  {
+    id: 18,
+    name: "양구 반려견 자연 놀이터",
+    category: "관광지",
+    address: "강원특별자치도 양구군 양구읍 레포츠공원길 53",
+    lat: 38.1098,
+    lng: 127.9790,
+    tel: "033-480-2575",
+    allowSmall: true,
+    allowMedium: true,
+    allowLarge: false,
+    offLeash: true,
+    tags: ["무료놀이터", "어질리티", "소나무그늘", "안전펜스"],
+    tip: "동물등록이 완료된 중소형 반려견(15kg 미만)만 입장이 가능하며 맹견은 출입이 제한됩니다. 배변 수거는 필수이며 무료로 이용할 수 있는 보호자 벤치와 차양 시설이 구비되어 있습니다.",
+    description: "양구군에서 직접 레포츠공원 내 야외 잔디광장 부근에 조성한 약 530㎡ 규모의 공익형 반려견 전용 무료 운동장입니다. 안전 펜스 도어와 다양한 어질리티 반려견 놀이기구가 설치되어 있어 맘껏 운동하기에 제격입니다.",
+    imageUrl: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "A",
+    officialUrl: null,
+    sourceName: "양구군청 공식 공고",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["관광지", "산책"]
+  },
+  {
+    id: 19,
+    name: "폴라베어 애견펜션",
+    category: "숙소",
+    address: "강원특별자치도 양구군 양구읍 박수근로365번길 29-23",
+    lat: 38.1018,
+    lng: 128.0075,
+    tel: "0507-1313-0603",
+    allowSmall: true,
+    allowMedium: true,
+    allowLarge: true,
+    offLeash: true,
+    tags: ["독채펜션", "대형견환영", "이중안전펜스", "편백나무독채"],
+    tip: "15kg 이상 대형견 동반이 가능한 얼마 안 되는 귀중한 웰빙 펜션입니다. 편백나무 본관 and 향나무 별관으로 구성된 독채 구조라 마킹 예방을 위한 기본 위생매너만 잘 챙겨오시면 됩니다.",
+    description: "양구 읍내 전경이 한눈에 들어오는 탁 트인 높은 언덕에 자연 친화적으로 설계된 프리미엄 독채 펜션입니다. 본관과 별관 사방에 튼튼한 안전 울타리가 둘러쳐진 전용 천연잔디 애견 놀이터가 각각 독립적으로 운영됩니다.",
+    imageUrl: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=800",
+    trustGrade: "B",
+    officialUrl: null,
+    sourceName: "네이버 플레이스 수록",
+    sourceUrl: null,
+    lastUpdated: "2026-06-02",
+    purposeTags: ["숙박"]
   }
 ];
 
@@ -287,7 +451,8 @@ const state = {
   filteredPlaces: initialPlaces,
   selectedCategory: "전체",
   searchQuery: "",
-  selectedConditions: [], // ['소형견', '중형견', '대형견', '오프리쉬']
+  selectedConditions: ["전체"], // ['전체', '소형견', '중형견', '대형견', '오프리쉬']
+  sortBy: "trustGrade", // 'trustGrade', 'officialUrl', 'mapDirect', 'phoneCall'
   selectedPlaceId: null,
   
   // 지도 관련 상태
@@ -340,8 +505,11 @@ function initMap() {
   
   // Leaflet 지도 엔진 로드
   if (state.mapEngine === "leaflet") {
-    document.getElementById("map-engine-status").innerText = "OpenStreetMap (Leaflet)";
-    document.getElementById("map-engine-status").className = "status-value badge-active";
+    const statusEl = document.getElementById("map-engine-status");
+    if (statusEl) {
+      statusEl.innerText = "OpenStreetMap (Leaflet)";
+      statusEl.className = "status-value badge-active";
+    }
     
     // 양구군 중심부로 지도의 중심 설정
     state.mapInstance = L.map("map", {
@@ -444,12 +612,17 @@ function updateMapMarkers() {
   }
 }
 
-// 6. 데이터 필터링 핵심 로직 (Filtering logic)
+// 6. 데이터 필터링 및 우선순위 정렬 핵심 로직 (Filtering & Sorting logic)
 function filterPlaces() {
   state.filteredPlaces = state.places.filter(place => {
-    // 6.1 카테고리 필터링
-    if (state.selectedCategory !== "전체" && place.category !== state.selectedCategory) {
-      return false;
+    // 6.1 카테고리(여행 목적) 필터링
+    if (state.selectedCategory !== "전체") {
+      const category = state.selectedCategory;
+      if (category === "의료/편의") {
+        if (place.category !== "의료/편의") return false;
+      } else {
+        if (!place.purposeTags || !place.purposeTags.includes(category)) return false;
+      }
     }
     
     // 6.2 텍스트 검색 (이름, 주소, 태그, 설명 포함)
@@ -467,17 +640,33 @@ function filterPlaces() {
     }
     
     // 6.3 반려견 조건 필터링
-    if (state.selectedConditions.length > 0) {
+    if (state.selectedConditions.length > 0 && !state.selectedConditions.includes("전체")) {
       for (const condition of state.selectedConditions) {
         if (condition === "소형견" && !place.allowSmall) return false;
         if (condition === "중형견" && !place.allowMedium) return false;
         if (condition === "대형견" && !place.allowLarge) return false;
         if (condition === "오프리쉬" && !place.offLeash) return false;
       }
+    } else if (state.selectedConditions.includes("전체")) {
+      if (state.selectedConditions.includes("오프리쉬") && !place.offLeash) {
+        return false;
+      }
     }
     
     return true;
   });
+  
+  // 6.4 우선순위 정렬 적용
+  const gradeWeight = { "A": 3, "B": 2, "C": 1 };
+  if (state.sortBy === "trustGrade") {
+    state.filteredPlaces.sort((a, b) => (gradeWeight[b.trustGrade] || 0) - (gradeWeight[a.trustGrade] || 0));
+  } else if (state.sortBy === "officialUrl") {
+    state.filteredPlaces.sort((a, b) => (b.officialUrl ? 1 : 0) - (a.officialUrl ? 1 : 0));
+  } else if (state.sortBy === "mapDirect") {
+    state.filteredPlaces.sort((a, b) => ((b.lat && b.lng) ? 1 : 0) - ((a.lat && a.lng) ? 1 : 0));
+  } else if (state.sortBy === "phoneCall") {
+    state.filteredPlaces.sort((a, b) => (b.tel ? 1 : 0) - (a.tel ? 1 : 0));
+  }
   
   // UI 리스트와 카운터 업데이트
   renderPlacesList();
@@ -526,6 +715,20 @@ function renderPlacesList() {
     const sizeTagsHtml = dogSizeTags.map(size => `<span class="card-tag">${size}</span>`).join("");
     const offleashTagHtml = place.offLeash ? `<span class="card-tag highlight">🐾 오프리쉬</span>` : "";
     
+    // 신뢰도 뱃지
+    const trustBadgeText = place.trustGrade === 'A' ? '🟢 공식 A' : place.trustGrade === 'B' ? '🟡 권장 B' : '⚪ 참고 C';
+    const trustBadgeHtml = `<span class="trust-badge grade-${place.trustGrade.toLowerCase()}">${trustBadgeText}</span>`;
+    
+    // 전화번호 버튼
+    const phoneBtnHtml = place.tel 
+      ? `<a href="tel:${place.tel}" class="quick-action-btn phone" title="전화하기" onclick="event.stopPropagation();"><i data-lucide="phone"></i> 전화</a>`
+      : `<button class="quick-action-btn phone" disabled title="전화번호 없음" onclick="event.stopPropagation();"><i data-lucide="phone-off"></i> 없음</button>`;
+      
+    // 공식 정보 버튼
+    const officialBtnHtml = place.officialUrl
+      ? `<a href="${place.officialUrl}" target="_blank" class="quick-action-btn official" title="공식 홈페이지" onclick="event.stopPropagation();"><i data-lucide="globe"></i> 공식</a>`
+      : `<button class="quick-action-btn official" disabled title="공식 홈페이지 없음" onclick="event.stopPropagation();"><i data-lucide="globe"></i> 없음</button>`;
+
     card.innerHTML = `
       <div class="card-img-wrapper">
         <img src="${place.imageUrl}" alt="${place.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400'">
@@ -534,6 +737,7 @@ function renderPlacesList() {
         <div class="card-top">
           <div class="card-badge-row">
             <span class="category-badge ${place.category}">${place.category}</span>
+            ${trustBadgeHtml}
           </div>
           <h3 class="card-title">${place.name}</h3>
           <p class="card-address">${place.address}</p>
@@ -541,6 +745,12 @@ function renderPlacesList() {
         <div class="card-bottom">
           ${sizeTagsHtml}
           ${offleashTagHtml}
+        </div>
+        <div class="card-quick-actions">
+          <button class="quick-action-btn map" onclick="event.stopPropagation(); selectPlace(${place.id}, true);"><i data-lucide="map-pin"></i> 위치</button>
+          ${phoneBtnHtml}
+          ${officialBtnHtml}
+          <button class="quick-action-btn share" onclick="event.stopPropagation(); sharePlace(${place.id});"><i data-lucide="share-2"></i> 공유</button>
         </div>
       </div>
     `;
@@ -620,6 +830,85 @@ function selectPlace(placeId, shouldPan = true) {
   }
 }
 
+// 8.5 질문 리스트 생성 및 복사 헬퍼 함수 (Visit Questions helper)
+function getVisitQuestions(category) {
+  const common = [
+    "반려견 동반 입장이 지금도 문제없이 가능한가요?",
+    "반려견 동반 시 추가 요금이 따로 있나요?",
+    "리드줄 착용 외에 준수해야 할 무게나 마리 수 제한이 있나요?"
+  ];
+  let specific = [];
+  if (category === "식당/카페" || category === "카페·식당" || category === "식당" || category === "카페") {
+    specific = [
+      "실내 좌석 동반 시 켄넬이나 이동가방(개모차)이 필수인가요?",
+      "일반 야외 테라스석만 이용이 가능한가요, 아니면 실내 전용 동반석이 따로 있나요?",
+      "강아지를 위한 전용 음용수 그릇이나 메뉴가 준비되어 있나요?"
+    ];
+  } else if (category === "숙소" || category === "숙박") {
+    specific = [
+      "객실 내 머무는 동안 마킹을 예방하기 위해 매너벨트(기저귀) 착용이 의무인가요?",
+      "펜션/글램핑장 내 운동장이나 드라이룸 같은 반려견 편의시설이 구비되어 있나요?",
+      "10kg 이상 중대형견 동반 시 추가 객실 청소비나 보증금이 있나요?"
+    ];
+  } else if (category === "관광지" || category === "산책") {
+    specific = [
+      "일반 보행자 안전을 위해 입장할 수 없는 특정 제한 구역(조경 구역 등)이 있나요?",
+      "목줄을 가볍게 풀 수 있는 오프리쉬 쉼터나 전용 놀이터 구간이 포함되어 있나요?"
+    ];
+  } else {
+    specific = [
+      "주변에 반려견이 마킹하거나 쉬어갈 수 있는 전용 잔디광장이 인접해 있나요?"
+    ];
+  }
+  return [...common, ...specific];
+}
+
+window.toggleQuestionsAccordion = function() {
+  const box = document.getElementById("detail-questions-box");
+  if (box) {
+    box.classList.toggle("open");
+  }
+};
+
+window.copyQuestions = function(placeName, category) {
+  const questions = getVisitQuestions(category);
+  const text = `[양구 애견동반 판별기 - ${placeName} 방문 전 전화 확인 질문 리스트]\n` + 
+    questions.map((q, idx) => `${idx + 1}. ${q}`).join("\n") + 
+    "\n\n* 본 정보는 양구 애견동반 판별기 MVP에서 제공하는 공익 가이드라인입니다.";
+    
+  navigator.clipboard.writeText(text).then(() => {
+    showToast("확인 질문 리스트가 클립보드에 복사되었습니다! 통화/문의 시 바로 활용하세요.", "success");
+  }).catch(() => {
+    showToast("클립보드 복사에 실패했습니다.", "error");
+  });
+};
+
+window.sharePlace = function(placeId) {
+  const place = state.places.find(p => p.id === placeId);
+  if (!place) return;
+  
+  const title = `🐾 양구 애견동반 판별기 - [${place.name}]`;
+  const text = `[양구 애견동반 판별기 추천]\n장소: ${place.name} (${place.category})\n주소: ${place.address}\n등급: ${place.trustGrade} 등급\n\n반려견과 가볍게 떠나는 양구 여행 정보를 30초 안에 확인해 보세요!`;
+  const url = window.location.href;
+  
+  if (navigator.share) {
+    navigator.share({
+      title: title,
+      text: text,
+      url: url
+    }).catch(err => {
+      console.log("Share failed:", err);
+    });
+  } else {
+    const copyText = `${title}\n${text}\n상세정보: ${url}`;
+    navigator.clipboard.writeText(copyText).then(() => {
+      showToast("장소 요약 정보가 공유용으로 클립보드에 복사되었습니다!", "success");
+    }).catch(() => {
+      showToast("클립보드 복사에 실패했습니다.", "error");
+    });
+  }
+};
+
 // 9. 슬라이드인 세부 판넬 렌더링 및 노출
 function showDetailPanel(place) {
   const panel = document.getElementById("detail-panel");
@@ -657,6 +946,87 @@ function showDetailPanel(place) {
     </div>
   `).join("");
 
+  // 신뢰도 가이드 카드 구성
+  let trustGradeText = "";
+  let trustGradeGuide = "";
+  if (place.trustGrade === "A") {
+    trustGradeText = "A등급: 공식 데이터 확인";
+    trustGradeGuide = "양구군청 또는 한국관광공사 등 공공 기관의 데이터베이스를 공식 확인한 동반 장소입니다. 비교적 신뢰도가 매우 높고 안전합니다.";
+  } else if (place.trustGrade === "B") {
+    trustGradeText = "B등급: 방문 전 확인 권장";
+    trustGradeGuide = "민간 플랫폼 및 지도 정보 기준입니다. 현장 정책(동반 조건, 제한 견종 등)이 예고 없이 수시 변동될 수 있어 출발 전 확인 전화를 권장합니다.";
+  } else {
+    trustGradeText = "C등급: 참고용 후보지";
+    trustGradeGuide = "인터넷 후기 또는 반려인 커뮤니티 데이터 기반입니다. 입장 규정이 다소 유동적일 수 있으므로 방문 전 전화 확인이 필수적입니다.";
+  }
+
+  const trustCardHtml = `
+    <div class="detail-trust-card">
+      <div class="trust-card-header">
+        <span class="trust-badge grade-${place.trustGrade.toLowerCase()}">${place.trustGrade} 등급</span>
+        <strong class="trust-card-title">${trustGradeText}</strong>
+      </div>
+      <p class="trust-card-desc">${trustGradeGuide}</p>
+      <div class="trust-card-meta">
+        <span>출처: ${place.sourceName || '공공데이터'}</span>
+        <span>최종 갱신일: ${place.lastUpdated || '2026-06-02'}</span>
+      </div>
+    </div>
+  `;
+
+  // 질문 아코디언 구성
+  const visitQuestions = getVisitQuestions(place.category);
+  const questionsLiHtml = visitQuestions.map(q => `<li>${q}</li>`).join("");
+  const questionsAccordionHtml = `
+    <div class="detail-questions-box" id="detail-questions-box">
+      <div class="questions-header" onclick="toggleQuestionsAccordion()">
+        <span class="questions-header-title"><i data-lucide="help-circle"></i> 📞 방문 전 확인 질문 (${visitQuestions.length}가지)</span>
+        <span class="questions-toggle-icon"><i data-lucide="chevron-down"></i></span>
+      </div>
+      <div class="questions-content-wrapper">
+        <div class="questions-body">
+          <ul class="questions-list">
+            ${questionsLiHtml}
+          </ul>
+          <button class="copy-questions-btn" onclick="copyQuestions('${place.name.replace(/'/g, "\\'")}', '${place.category}')">
+            <i data-lucide="copy"></i> 질문 목록 복사하기
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // 포털 검색 링크 구성
+  const encodedQuery = encodeURIComponent("양구 " + place.name);
+  const portalLinksHtml = `
+    <div class="portal-links-section">
+      <span class="portal-links-title"><i data-lucide="external-link"></i> 30초 판별 포털 검색 & 지도 바로가기</span>
+      <div class="portal-links-grid">
+        <a href="https://search.naver.com/search.naver?query=${encodedQuery}" target="_blank" class="portal-btn naver-search">
+          💚 네이버 검색
+        </a>
+        <a href="https://map.naver.com/v5/search/${encodedQuery}" target="_blank" class="portal-btn naver-map">
+          📍 네이버 지도
+        </a>
+        <a href="https://map.kakao.com/?q=${encodedQuery}" target="_blank" class="portal-btn kakao-map">
+          💛 카카오맵
+        </a>
+        <a href="https://www.google.com/search?q=${encodedQuery}" target="_blank" class="portal-btn google-search">
+          💙 구글 검색
+        </a>
+      </div>
+    </div>
+  `;
+
+  // 공유하기 버튼 구성
+  const shareBoxHtml = `
+    <div class="detail-share-box">
+      <button class="share-btn" onclick="sharePlace(${place.id})">
+        <i data-lucide="share-2"></i> 이 장소 보호자 동료들에게 공유하기
+      </button>
+    </div>
+  `;
+
   content.innerHTML = `
     <div class="detail-hero">
       <img src="${place.imageUrl}" alt="${place.name}" onerror="this.src='https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800'">
@@ -670,6 +1040,9 @@ function showDetailPanel(place) {
         <h2 class="detail-title">${place.name}</h2>
       </div>
 
+      <!-- Trust Grade Disclaimer -->
+      ${trustCardHtml}
+
       <div class="detail-pet-policy">
         <div class="policy-header">
           <i data-lucide="dog"></i>
@@ -682,6 +1055,11 @@ function showDetailPanel(place) {
           ${offleashText}
         </div>
       </div>
+
+      <div class="detail-divider"></div>
+
+      <!-- Visit Questions Accordion -->
+      ${questionsAccordionHtml}
 
       <div class="detail-divider"></div>
 
@@ -717,15 +1095,15 @@ function showDetailPanel(place) {
             <i data-lucide="navigation"></i>
             <span>길찾기</span>
             <span>
-              <a href="https://map.kakao.com/link/to/${place.name},${place.lat},${place.lng}" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 700;">카카오맵 ↗</a>
+              <a href="https://map.kakao.com/link/to/${place.name},${place.lat},${place.lng}" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 700;">카카오맵 길찾기 ↗</a>
               <span style="color: var(--text-muted); margin: 0 6px;">|</span>
-              <a href="https://map.naver.com/v5/search/${encodeURIComponent(place.address)}" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 700;">네이버 지도 ↗</a>
+              <a href="https://map.naver.com/v5/search/${encodeURIComponent(place.address)}" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 700;">네이버 지도 길찾기 ↗</a>
             </span>
           </div>
           <div class="info-item">
             <i data-lucide="phone"></i>
             <span>전화번호</span>
-            <span>${place.tel ? place.tel : "정보 없음"}</span>
+            <span>${place.tel ? `<a href="tel:${place.tel}" style="color: var(--text-dark); text-decoration: none; font-weight: 700;">${place.tel}</a>` : "정보 없음"}</span>
           </div>
           <div class="info-item">
             <i data-lucide="hash"></i>
@@ -734,6 +1112,14 @@ function showDetailPanel(place) {
           </div>
         </div>
       </div>
+
+      <div class="detail-divider"></div>
+
+      <!-- Portal Navigation Links -->
+      ${portalLinksHtml}
+
+      <!-- Share Action Box -->
+      ${shareBoxHtml}
 
       <div class="detail-divider"></div>
 
@@ -908,8 +1294,11 @@ function setupKakaoMapInstance() {
   
   updateKakaoMapMarkers();
   
-  document.getElementById("map-engine-status").innerText = "Kakao Maps";
-  document.getElementById("map-engine-status").className = "status-value badge-kakao";
+  const statusEl = document.getElementById("map-engine-status");
+  if (statusEl) {
+    statusEl.innerText = "Kakao Maps";
+    statusEl.className = "status-value badge-kakao";
+  }
   
   // 모달 닫기
   document.getElementById("menu-overlay").classList.remove("active");
@@ -1310,6 +1699,42 @@ function initRegisterModal() {
     e.preventDefault();
     handleRegisterSubmit();
   });
+
+  // 이미지 파일 변화 리스너 및 삭제 바인딩
+  const fileInput = document.getElementById("reg-image-file");
+  const uploadTrigger = document.getElementById("image-upload-trigger");
+  const previewContainer = document.getElementById("image-preview-container");
+  const previewImage = document.getElementById("reg-image-preview");
+  const removeImageBtn = document.getElementById("btn-remove-reg-image");
+
+  if (fileInput && uploadTrigger && previewContainer && previewImage && removeImageBtn) {
+    fileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      // 최대 1.5MB 파일 용량 권장 검사
+      if (file.size > 1.5 * 1024 * 1024) {
+        alert("사진 파일 용량이 너무 큽니다. 1.5MB 이하의 사진을 선택해 주세요.");
+        fileInput.value = "";
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        previewImage.src = event.target.result;
+        previewContainer.classList.remove("hidden");
+        uploadTrigger.classList.add("hidden");
+      };
+      reader.readAsDataURL(file);
+    });
+
+    removeImageBtn.addEventListener("click", () => {
+      fileInput.value = "";
+      previewImage.src = "";
+      previewContainer.classList.add("hidden");
+      uploadTrigger.classList.remove("hidden");
+    });
+  }
 }
 
 function resetRegisterForm() {
@@ -1321,6 +1746,17 @@ function resetRegisterForm() {
     status.innerText = "미선택 (필수)";
     status.className = "coords-display";
   }
+
+  // 업로드용 사진 미리보기 돔 상태 리셋
+  const fileInput = document.getElementById("reg-image-file");
+  const uploadTrigger = document.getElementById("image-upload-trigger");
+  const previewContainer = document.getElementById("image-preview-container");
+  const previewImage = document.getElementById("reg-image-preview");
+
+  if (fileInput) fileInput.value = "";
+  if (previewImage) previewImage.src = "";
+  if (previewContainer) previewContainer.classList.add("hidden");
+  if (uploadTrigger) uploadTrigger.classList.remove("hidden");
 }
 
 function enterMapPickerMode() {
@@ -1480,21 +1916,35 @@ function handleRegisterSubmit() {
   // 태그 파싱
   const tags = tagsInput ? tagsInput.split(",").map(t => t.trim()).filter(Boolean) : [];
   
-  // 카테고리별 매칭 대표 이미지
-  let imageUrl = "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800"; // 기본 댕댕이
-  if (category === "숙소") {
-    imageUrl = "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=800";
-  } else if (category === "식당/카페") {
-    imageUrl = "https://images.unsplash.com/photo-1554818538-98e045d45ac8?auto=format&fit=crop&q=80&w=800";
-  } else if (category === "관광지") {
-    imageUrl = "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800";
-  } else if (category === "의료/편의") {
-    imageUrl = "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800";
+  // 사용자가 사진을 업로드했는지 미리보기 src 검사 (Base64 우선)
+  const previewImage = document.getElementById("reg-image-preview");
+  let imageUrl = "";
+  if (previewImage && previewImage.src && previewImage.src.startsWith("data:image/")) {
+    imageUrl = previewImage.src;
+  } else {
+    // 카테고리별 매칭 기본 이미지 (Unsplash 프리미엄)
+    imageUrl = "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800"; // 기본 댕댕이
+    if (category === "숙소") {
+      imageUrl = "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=800";
+    } else if (category === "식당/카페") {
+      imageUrl = "https://images.unsplash.com/photo-1554818538-98e045d45ac8?auto=format&fit=crop&q=80&w=800";
+    } else if (category === "관광지") {
+      imageUrl = "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800";
+    } else if (category === "의료/편의") {
+      imageUrl = "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800";
+    }
   }
   
   // 고유 ID 발행
   const newId = state.places.length > 0 ? Math.max(...state.places.map(p => p.id)) + 1 : 1;
   
+  // 카테고리 목적 매핑
+  let purposeTags = [];
+  if (category === "숙소") purposeTags = ["숙박"];
+  else if (category === "식당/카페") purposeTags = ["카페·식당"];
+  else if (category === "관광지") purposeTags = ["관광지", "산책"];
+  else purposeTags = [category];
+
   const newPlace = {
     id: newId,
     name: name,
@@ -1510,7 +1960,13 @@ function handleRegisterSubmit() {
     tags: tags,
     description: description,
     tip: tip || "목줄을 꼭 착용하고 쾌적한 펫티켓 수칙을 동참해 주세요.",
-    imageUrl: imageUrl
+    imageUrl: imageUrl,
+    trustGrade: "C",
+    sourceName: "사용자 제안 등록",
+    sourceUrl: null,
+    officialUrl: null,
+    lastUpdated: new Date().toISOString().split('T')[0],
+    purposeTags: purposeTags
   };
   
   // 메모리 및 브라우저 데이터베이스 적재
@@ -1586,23 +2042,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-  // 14.4 반려견 조건(칩) 토글 클릭
+  // 14.4 반려견 조건(칩) 토글 클릭 (전체 칩 연동 및 유기적 상호작용)
   const conditionChips = document.querySelectorAll(".condition-chip");
   conditionChips.forEach(chip => {
     chip.addEventListener("click", () => {
       const condition = chip.getAttribute("data-condition");
+      const isSizeCondition = ["소형견", "중형견", "대형견"].includes(condition);
       
-      if (state.selectedConditions.includes(condition)) {
-        state.selectedConditions = state.selectedConditions.filter(c => c !== condition);
-        chip.classList.remove("active");
-      } else {
-        state.selectedConditions.push(condition);
-        chip.classList.add("active");
+      if (condition === "전체") {
+        state.selectedConditions = ["전체"];
+        const offLeashChip = document.querySelector(".condition-chip[data-condition='오프리쉬']");
+        if (offLeashChip && offLeashChip.classList.contains("active")) {
+          state.selectedConditions.push("오프리쉬");
+        }
+        
+        conditionChips.forEach(c => {
+          const cond = c.getAttribute("data-condition");
+          if (cond === "전체") c.classList.add("active");
+          else if (cond !== "오프리쉬") c.classList.remove("active");
+        });
+      } else if (isSizeCondition) {
+        state.selectedConditions = state.selectedConditions.filter(c => c !== "전체");
+        const totalChip = document.querySelector(".condition-chip[data-condition='전체']");
+        if (totalChip) totalChip.classList.remove("active");
+        
+        if (state.selectedConditions.includes(condition)) {
+          state.selectedConditions = state.selectedConditions.filter(c => c !== condition);
+          chip.classList.remove("active");
+        } else {
+          state.selectedConditions.push(condition);
+          chip.classList.add("active");
+        }
+        
+        const sizeSelected = state.selectedConditions.some(c => ["소형견", "중형견", "대형견"].includes(c));
+        if (!sizeSelected) {
+          state.selectedConditions.push("전체");
+          if (totalChip) totalChip.classList.add("active");
+        }
+      } else if (condition === "오프리쉬") {
+        if (state.selectedConditions.includes("오프리쉬")) {
+          state.selectedConditions = state.selectedConditions.filter(c => c !== "오프리쉬");
+          chip.classList.remove("active");
+        } else {
+          state.selectedConditions.push("오프리쉬");
+          chip.classList.add("active");
+        }
       }
       filterPlaces();
       closeDetailPanel();
     });
   });
+  
+
   
   // 14.5 필터 초기화 버튼
   document.getElementById("btn-reset-filters").addEventListener("click", () => {
@@ -1624,10 +2115,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   // 14.8 카카오 맵 키 등록 이벤트
-  document.getElementById("btn-apply-kakao").addEventListener("click", () => {
-    const keyVal = document.getElementById("kakao-api-key").value;
-    initKakaoMap(keyVal);
-  });
+  const btnApplyKakao = document.getElementById("btn-apply-kakao");
+  if (btnApplyKakao) {
+    btnApplyKakao.addEventListener("click", () => {
+      const kakaoKeyInput = document.getElementById("kakao-api-key");
+      if (kakaoKeyInput) {
+        initKakaoMap(kakaoKeyInput.value);
+      }
+    });
+  }
+  
+  // 14.8.2 카카오 맵 키 보이기/숨기기 토글 이벤트
+  const toggleKeyVisibilityBtn = document.getElementById("btn-toggle-key-visibility");
+  if (toggleKeyVisibilityBtn) {
+    toggleKeyVisibilityBtn.addEventListener("click", () => {
+      const kakaoKeyInput = document.getElementById("kakao-api-key");
+      const icon = toggleKeyVisibilityBtn.querySelector("i");
+      
+      if (kakaoKeyInput && icon) {
+        if (kakaoKeyInput.type === "password") {
+          kakaoKeyInput.type = "text";
+          icon.setAttribute("data-lucide", "eye");
+        } else {
+          kakaoKeyInput.type = "password";
+          icon.setAttribute("data-lucide", "eye-off");
+        }
+        lucide.createIcons();
+      }
+    });
+  }
   
   // 필터 초기화 유틸
   function resetAllFilters() {
@@ -1640,7 +2156,11 @@ document.addEventListener("DOMContentLoaded", () => {
     state.selectedCategory = "전체";
     
     conditionChips.forEach(c => c.classList.remove("active"));
-    state.selectedConditions = [];
+    const totalChip = document.querySelector(".condition-chip[data-condition='전체']");
+    if (totalChip) totalChip.classList.add("active");
+    state.selectedConditions = ["전체"];
+    
+    state.sortBy = "trustGrade";
     
     filterPlaces();
   }
@@ -1655,8 +2175,20 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
   
-  // 14.11 앱 최초 지도 및 리스트 렌더링 실행
-  initMap();
+  // 14.11 설정 파일(config.js)의 카카오 키 검사 및 프리필/기동
+  const kakaoKeyInput = document.getElementById("kakao-api-key");
+  if (typeof CONFIG !== "undefined" && CONFIG.KAKAO_MAP_API_KEY && CONFIG.KAKAO_MAP_API_KEY.trim() !== "") {
+    state.kakaoKey = CONFIG.KAKAO_MAP_API_KEY;
+    if (kakaoKeyInput) {
+      kakaoKeyInput.value = CONFIG.KAKAO_MAP_API_KEY;
+    }
+    // 카카오맵 JavaScript 키가 세팅되었으므로, 최초 기동 시 즉시 상용 지도로 기동 시도!
+    initKakaoMap(CONFIG.KAKAO_MAP_API_KEY);
+  } else {
+    // 키가 설정되어 있지 않다면 기본 OpenStreetMap(Leaflet) 기동
+    initMap();
+  }
+  
   filterPlaces();
   
   // Lucide 아이콘 파싱

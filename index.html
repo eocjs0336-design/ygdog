@@ -61,19 +61,22 @@
           </button>
         </div>
 
-        <!-- Category Buttons -->
+        <!-- Category Buttons (여행 목적) -->
         <div class="category-filters">
           <button class="category-btn active" data-category="전체">
             <i data-lucide="grid"></i> 전체
           </button>
-          <button class="category-btn" data-category="숙소">
-            <i data-lucide="home"></i> 숙소
-          </button>
-          <button class="category-btn" data-category="식당/카페">
-            <i data-lucide="coffee"></i> 식당/카페
+          <button class="category-btn" data-category="산책">
+            <i data-lucide="footprints"></i> 산책
           </button>
           <button class="category-btn" data-category="관광지">
             <i data-lucide="palmtree"></i> 관광지
+          </button>
+          <button class="category-btn" data-category="카페·식당">
+            <i data-lucide="coffee"></i> 카페·식당
+          </button>
+          <button class="category-btn" data-category="숙박">
+            <i data-lucide="home"></i> 숙박
           </button>
           <button class="category-btn" data-category="의료/편의">
             <i data-lucide="heart-pulse"></i> 의료/편의
@@ -82,19 +85,17 @@
 
         <!-- Pet Conditions Filter -->
         <div class="pet-conditions-filter">
-          <span class="filter-title">반려견 크기 및 구역 필터:</span>
+          <span class="filter-title">반려견 크기 및 구역:</span>
           <div class="condition-chips">
-            <button class="condition-chip" data-condition="소형견">소형견 가능</button>
-            <button class="condition-chip" data-condition="중형견">중형견 가능</button>
-            <button class="condition-chip" data-condition="대형견">대형견 가능</button>
+            <button class="condition-chip active" data-condition="전체">전체</button>
+            <button class="condition-chip" data-condition="소형견">소형견</button>
+            <button class="condition-chip" data-condition="중형견">중형견</button>
+            <button class="condition-chip" data-condition="대형견">대형견</button>
             <button class="condition-chip" data-condition="오프리쉬">오프리쉬 구역</button>
           </div>
         </div>
 
-        <!-- Emergency Banner Button -->
-        <button class="emergency-banner-btn" id="btn-emergency-open">
-          <i data-lucide="phone-call"></i> 24시 긴급 동물병원 & 응급 가이드
-        </button>
+
       </div>
 
       <!-- Places List -->
@@ -139,6 +140,30 @@
       <button class="mobile-toggle-view-btn" id="btn-mobile-toggle">
         <i data-lucide="list"></i> <span>목록 보기</span>
       </button>
+
+      <!-- Floating Emergency Action Button (FAB) on Map Area -->
+      <button class="floating-emergency-btn" id="btn-emergency-open" aria-label="24시 긴급 동물병원 & 응급 가이드">
+        <i data-lucide="phone-call"></i>
+      </button>
+
+      <!-- Map Footer Disclaimer Banner (One-line) -->
+      <footer class="map-footer">
+        <div class="map-footer-container">
+          <div class="map-footer-badges">
+            <span class="map-badge no-ad"><i data-lucide="shield-check"></i> No-AD</span>
+            <span class="map-badge pure-data"><i data-lucide="database"></i> Pure Data</span>
+            <span class="map-badge no-login"><i data-lucide="user-x"></i> No Login</span>
+          </div>
+          <div class="map-footer-divider"></div>
+          <p class="map-footer-text">
+            본 정보는 공공데이터 기반 <strong>무료 공익 유틸리티</strong>입니다. 업체의 실제 현장 정책은 예고 없이 상시 변경될 수 있으므로 <strong>방문 전 전화 또는 공식 정보 채널을 통해 재확인</strong>을 필수 권장합니다. (출처: TourAPI 외)
+          </p>
+          <div class="map-footer-divider"></div>
+          <div class="map-footer-meta">
+            <span>최종 갱신: 2026-06-02</span>
+          </div>
+        </div>
+      </footer>
     </main>
 
   </div>
@@ -176,7 +201,6 @@
         <div class="guide-tabs">
           <button class="tab-btn active" data-tab="course">🗺️ 추천 여행 코스</button>
           <button class="tab-btn" data-tab="petiquette">🛡️ 공공장소 펫티켓</button>
-          <button class="tab-btn" data-tab="map-settings">⚙️ 지도 설정</button>
         </div>
 
         <!-- Tab Content: Travel Courses -->
@@ -329,27 +353,7 @@
           </div>
         </div>
 
-        <!-- Tab Content: Map Settings (for Kakao Key transition) -->
-        <div class="tab-pane" id="tab-map-settings">
-          <div class="settings-content">
-            <h3>🗺️ 지도 API 설정</h3>
-            <p class="settings-desc">기본적으로 로컬 환경에서 즉시 작동하는 OpenStreetMap(Leaflet)이 작동하고 있습니다. 카카오맵 API 키를 보유하고 계시다면 아래에 입력하여 상용 지도 서비스로 전환해 볼 수 있습니다.</p>
-            
-            <div class="api-key-form">
-              <label for="kakao-api-key">카카오맵 JavaScript API Key</label>
-              <div class="input-group">
-                <input type="text" id="kakao-api-key" placeholder="발급받은 JavaScript 키를 입력하세요..." autocomplete="off">
-                <button class="apply-btn" id="btn-apply-kakao">적용하기</button>
-              </div>
-              <p class="form-help">※ 주의: 카카오 개발자 콘솔에서 해당 로컬 서버의 도메인(예: <code>http://localhost:5500</code> 또는 <code>http://127.0.0.1:5500</code>)이 플랫폼 허용 도메인으로 등록되어 있어야 정상 표시됩니다.</p>
-            </div>
-            
-            <div class="current-map-status">
-              <span class="status-label">현재 구동 중인 지도 엔진:</span>
-              <span class="status-value badge-active" id="map-engine-status">OpenStreetMap (Leaflet)</span>
-            </div>
-          </div>
-        </div>
+
 
       </div>
     </div>
@@ -468,6 +472,20 @@
             <label for="reg-tip">댕댕 가이드 팁</label>
             <textarea id="reg-tip" placeholder="동반 방문 시 주의사항이나 꿀팁을 적어주세요..."></textarea>
           </div>
+          <div class="form-group span-2">
+            <label for="reg-image-file">장소 사진 등록 (로컬 브라우저 저장)</label>
+            <div class="image-upload-wrapper">
+              <label for="reg-image-file" class="image-upload-trigger" id="image-upload-trigger">
+                <i data-lucide="image-plus" class="upload-icon"></i>
+                <span class="upload-text">클릭하여 사진 파일 선택 (최대 1.5MB 권장)</span>
+              </label>
+              <input type="file" id="reg-image-file" accept="image/*" class="image-file-input">
+              <div class="image-preview-container hidden" id="image-preview-container">
+                <img id="reg-image-preview" src="" alt="사진 미리보기">
+                <button type="button" class="btn-remove-image" id="btn-remove-reg-image">❌ 사진 삭제</button>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="form-actions">
           <button type="submit" class="submit-btn" id="btn-submit-registration">장소 등록하기</button>
@@ -485,6 +503,9 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
+  <!-- Global Config API Keys -->
+  <script src="config.js"></script>
+
   <!-- App Custom JS -->
   <script src="app.js"></script>
 </body>
