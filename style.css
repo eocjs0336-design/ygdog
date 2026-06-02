@@ -106,17 +106,18 @@ body {
   user-select: none;
 }
 
-.logo-emoji {
-  font-size: 26px;
-  animation: wagging 2s infinite ease-in-out;
+.logo-dog-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  animation: gentleWiggle 3s infinite ease-in-out;
   transform-origin: bottom center;
-  display: inline-block;
 }
 
-@keyframes wagging {
+@keyframes gentleWiggle {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-8deg); }
-  75% { transform: rotate(8deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
 }
 
 .logo-text {
@@ -125,6 +126,9 @@ body {
   font-weight: 800;
   color: var(--primary-color);
   letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .logo-text span {
@@ -1497,6 +1501,7 @@ body {
   .floating-emergency-btn,
   .floating-facilities-btn,
   .floating-asphalt-btn,
+  .floating-course-btn,
   .asphalt-timetable-popup {
     display: none !important;
   }
@@ -1504,7 +1509,8 @@ body {
   /* 지도 보기(.map-view)일 때만 노출되도록 활성화 */
   .app-container.map-view .floating-emergency-btn,
   .app-container.map-view .floating-facilities-btn,
-  .app-container.map-view .floating-asphalt-btn {
+  .app-container.map-view .floating-asphalt-btn,
+  .app-container.map-view .floating-course-btn {
     display: flex !important;
   }
   
