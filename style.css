@@ -1493,6 +1493,25 @@ body {
     transform: translateX(-100%);
   }
 
+  /* 모바일 버전에서 목록 보기(기본 상태)일 때는 플로팅 버튼들을 숨김 */
+  .floating-emergency-btn,
+  .floating-facilities-btn,
+  .floating-asphalt-btn,
+  .asphalt-timetable-popup {
+    display: none !important;
+  }
+
+  /* 지도 보기(.map-view)일 때만 노출되도록 활성화 */
+  .app-container.map-view .floating-emergency-btn,
+  .app-container.map-view .floating-facilities-btn,
+  .app-container.map-view .floating-asphalt-btn {
+    display: flex !important;
+  }
+  
+  .app-container.map-view .asphalt-timetable-popup:not(.hidden) {
+    display: flex !important;
+  }
+
   .app-container.map-view .mobile-toggle-view-btn i {
     /* Set icon for listing */
   }
