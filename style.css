@@ -2518,12 +2518,11 @@ body {
 .map-footer-text {
   font-size: 11px;
   color: var(--text-muted);
-  line-height: 1.4;
+  line-height: 1.5;
   margin: 0;
   flex: 1;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: normal;
+  word-break: keep-all;
 }
 
 .map-footer-text strong {
